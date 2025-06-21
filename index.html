@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ocean Discovery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Hero Section -->
     <section id="hero-section">
-        <video autoplay loop>
-            <source src="images and videos/0620 (1).mp4" type="video/mp4">
+        <video autoplay loop muted>
+            <source src="images and videos/0620.mp4" type="video/mp4">
+            <source src="images and videos/0620.webm" type="video/webm">
             <!-- Fallback message for browsers that don't support video -->
             Your browser does not support the video
         </video>
@@ -36,14 +41,62 @@
     <section id="content-section">
         <div class="div" id="shallowest">
             <h3>From the shallowest<span class="typewriter-animation">...</span></h3>
-            <div class="biome-box beach">
+            <button class="biome-box beach">
                 <h6>Sandy Beach</h6>
-            </div>
+            </button>
+            <button class="biome-box reef">
+                <h6>Coral Reef</h6>
+            </button>
+            <button class="biome-box kelp">
+                <h6>Kelp Forest</h6>
+            </button>
+            <button class="biome-box seagrass">
+                <h6>Seagrass Meadow</h6>
+            </button>
         </div>
 
         <div id="deepest">
             <h3><span class="typewriter-animation">...</span>to the deepest</h3>
+            <button class="biome-box epi">
+                <h6>Epipelagic</h6>
+            </button>
+            <button class="biome-box meso">
+                <h6>Mesopelagic</h6>
+            </button>
+            <button class="biome-box bathy">
+                <h6>Bathypelagic</h6>
+            </button>
         </div>
     </section>
+
+    <!-- Modal -->
+    <article class="backdrop">
+        <div class="content">
+            <div class="title">
+                <hr>
+                <h1>Kelp Forest</h1>
+                <hr>
+            </div>
+            <h3 class="introduction">Kelp forests are underwater areas with a high density of kelp, which covers a large part of the world's coastlines. Smaller areas of anchored kelp are called kelp beds. They are recognized as one of the most productive and dynamic ecosystems on Earth. Although algal kelp forest combined with coral reefs only cover 0.1% of Earth's total surface, they account for 0.9% of global primary productivity. Kelp forests occur worldwide throughout temperate and polar coastal oceans. In 2007, kelp forests were also discovered in tropical waters near Ecuador.
+Physically formed by brown macroalgae, kelp forests provide a unique habitat for marine organisms and are a source for understanding many ecological processes. Over the last century, they have been the focus of extensive research, particularly in trophic ecology, and continue to provoke important ideas that are relevant beyond this unique ecosystem. For example, kelp forests can influence coastal oceanographic patterns and provide many ecosystem services.</h6>
+            <div class="aside-content">
+                <img src="" alt="">
+                <h3>Carbon sequester</h3>
+                <p>Kelp forests grow in rocky places along the shore that are constantly eroding carrying material out to the deep sea. The kelp then sinks to the ocean floor and store the carbon where is it unlikely to be disturbed by human activity. Researchers from the University of Western Australia estimated kelp forest around Australia sequestered 1.3-2.8 teragrams of carbon per year which is 27–34% of the total annual blue carbon sequestered in the Australian continent by tidal marshes, mangrove forests and seagrass beds. Every year 200 million tons of carbon dioxide are being sequestered by macroalgae such as kelp./p>
+            </div>
+            <div class="lower-content">
+                <div class="lower-content-image">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <h3>The real enemy</h3>
+                <p>Kelp forest ecology is shaped by both top-down and bottom-up processes. Top-down control involves predators regulating herbivores, while bottom-up control depends on abiotic factors like light and nutrient availability that support kelp growth. Kelp often thrives in nutrient-rich upwelling zones, where it forms the base of a food web that supports herbivores and their predators.
+In Alaskan kelp forests, sea otters are a classic example of top-down control. They prey on sea urchins, keeping their populations in check. Without sea otters, urchins overgraze the kelp, leading to ecosystem collapse and loss of biodiversity. Here, sea otters are considered a keystone species.
+In Southern California, kelp forests lack sea otters but remain stable thanks to other predators like lobsters and California sheephead. This predator redundancy means that if one species is removed, others can still regulate urchins. However, removing multiple predators can lead to urchin overpopulation and kelp decline.
+Similar patterns occur in Nova Scotia, South Africa, Australia, and Chile. These cases highlight how both top-down and bottom-up forces influence kelp ecosystems, with their relative importance varying by region. Ongoing research aims to better understand these dynamics to guide conservation and management efforts.</p>
+            </div>
+        </div>
+    </article>
+    <script src="main.js"></script>
 </body>
 </html>
