@@ -209,9 +209,23 @@ button {
 }
 
 #content-section button {
+    position: relative; 
     width: 60rem;
     height: 10rem;
     background-color: rgb(51, 51, 51, .5);
+    z-index: 1;
+}
+
+#content-section button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
 }
 
 #content-section button h6 {
@@ -226,4 +240,20 @@ button {
     flex-direction: column;
     gap: 3rem;
     z-index: 1;
+}
+
+/* Buttons */
+
+.beach { 
+    background-image: url(images\ and\ videos/beach.webp);
+    background-position: -35rem -27rem;
+}
+
+.beach::before {
+    background: linear-gradient(45deg, hsl(47, 55%, 71%) 25%, hsla(0, 0%, 100%, 0)) 100%;
+}
+
+.beach h6 {
+    text-align: start;
+    margin: 0 0 0 4rem;
 }
