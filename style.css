@@ -101,7 +101,7 @@ button {
 
 #quote-frame p:first-child {
     width: 85%;
-    margin: 3rem auto 2.25rem auto;
+    margin: 4rem auto 2.25rem auto;
     text-align: center;
 }
 
@@ -116,7 +116,7 @@ button {
     background-image: url(images\ and\ videos/seabackground.png);
     width: 100%;
     height: 141.8rem;
-    z-index: -2;
+    z-index: 1;
 }
 
 #content-section::before {
@@ -134,25 +134,84 @@ button {
     font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 500;
     color: #fff;
+    display: flex;
+    gap: .1rem;
 }
 
-.typewriter-animation {
-    
+.dot-1 {
+    animation: dot-1 2.5s ease-in infinite;
 }
+.dot-2 {
+    animation: dot-2 2.5s ease-in infinite;
+}
+.dot-3 {
+    animation: dot-3 2.5s ease-in infinite;
+}
+
+@keyframes dot-1 {
+    0% {
+        opacity: 0;
+    }
+    19% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes dot-2 {
+    0% {
+        opacity: 0;
+    }
+    44% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes dot-3 {
+    0% {
+        opacity: 0;
+    }
+    64% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 
 #h3-1 {
-    text-align: start;
+    justify-content: flex-start;
     padding: 8rem 0 4rem 8rem;
 } 
 
 #h3-2 {
-    text-align: end;
+    justify-content: flex-end;
     padding: 8rem 8rem 4rem 0;
 }
 
 #content-section button {
     width: 60rem;
     height: 10rem;
+    background-color: rgb(51, 51, 51, .5);
 }
 
 #content-section button h6 {
@@ -166,4 +225,5 @@ button {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    z-index: 1;
 }
