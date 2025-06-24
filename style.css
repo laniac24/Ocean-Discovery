@@ -64,7 +64,7 @@ button {
 
 #quote-title img {
     animation: rollingIcon;
-    animation-timeline: view();
+    animation-timeline: view(75% 25%);
     animation-range: entry 20% cover 100vh;
 }
 
@@ -214,6 +214,15 @@ button {
     height: 10rem;
     background-color: rgb(51, 51, 51, .5);
     z-index: 1;
+    background-size: cover;
+    transition: 250ms ease-in-out;
+}
+
+#content-section button:hover {
+    height: 13rem;
+    margin-top: -1.5rem;
+    margin-bottom: -1.5rem;
+    font-size: 4.5rem;
 }
 
 #content-section button::before {
@@ -233,27 +242,162 @@ button {
     font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 500;
     color: #fff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: 250ms ease-in-out;
+}
+
+#content-section button h6:hover {
+    font-size: 3.2rem;
 }
 
 #shallowest, #deepest {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 3rem;
     z-index: 1;
 }
 
-/* Buttons */
+/* Buttons Customizing */
 
 .beach { 
     background-image: url(images\ and\ videos/beach.webp);
-    background-position: -35rem -27rem;
+    background-position: 0 -13.5rem;
+    margin-left: 8rem;
 }
-
 .beach::before {
     background: linear-gradient(45deg, hsl(47, 55%, 71%) 25%, hsla(0, 0%, 100%, 0)) 100%;
 }
 
-.beach h6 {
-    text-align: start;
-    margin: 0 0 0 4rem;
+
+
+.reef { 
+    background-image: url(images\ and\ videos/reef.webp);
+    background-position: 0 -10rem;
+    margin-right: 16rem;
+}
+.reef::before {
+    background: linear-gradient(45deg, hsl(0, 0%, 100%, 0) 0%, hsl(190, 100%, 39%) 75%);
+}
+
+
+
+.kelp { 
+    background-image: url(images\ and\ videos/kelp.webp);
+    background-position: 0 -12.5rem;
+    margin-left: 20rem;
+}
+.kelp::before {
+    background: linear-gradient(45deg, hsl(37, 40%, 43%) 25%, hsla(0, 0%, 100%, 0) 100%);
+}
+
+
+
+.seagrass { 
+    background-image: url(images\ and\ videos/seagrass.webp);
+    background-position: 0 -12.5rem;
+    margin-right: 8rem;
+}
+.seagrass::before {
+    background: linear-gradient(45deg, hsl(0, 0%, 100%, 0) 0%, hsl(122, 21%, 49%) 75%);
+}
+
+
+
+.epi { 
+    background-image: url(images\ and\ videos/epipelagic.webp);
+    background-position: 0 -20rem;
+    margin-right: 8rem;
+}
+.epi::before {
+    background: linear-gradient(45deg, hsl(203, 80%, 34%) 25%, hsla(0, 0%, 100%, 0) 100%);
+}
+
+
+
+.meso { 
+    background-image: url(images\ and\ videos/mesopelagic.webp);
+    background-position: -2rem -17rem;
+    margin-left: 20rem;
+}
+.meso::before {
+    background: linear-gradient(45deg, hsl(0, 0%, 100%, 0) 0%, hsl(171, 22%, 28%) 75%);
+}
+
+
+
+.bathy { 
+    background-image: url(images\ and\ videos/bathypelagic.webp);
+    background-position: 0 -8.5rem;
+    margin-right: 20rem;
+}
+.bathy::before {
+    background: linear-gradient(45deg, hsl(203, 27%, 25%) 25%, hsla(0, 0%, 100%, 0) 100%);
+}
+
+
+
+.abysso { 
+    background-image: url(images\ and\ videos/abyssopelagic.webp);
+    background-position: 0 -4rem;
+    margin-left: 8rem;
+}
+.abysso::before {
+    background: linear-gradient(45deg, hsl(0, 0%, 100%, 0) 0%, hsl(0, 0%, 0%) 75%);
+}
+
+/* Button h6 */
+.beach h6, .kelp h6, .epi h6, .bathy h6 {
+    justify-content: flex-start;
+    padding: 0 0 0 4rem;
+}
+
+.reef h6, .seagrass h6, .meso h6, .abysso h6 {
+    justify-content: flex-end;
+    padding: 0 4rem 0 0;
+}
+
+/* Button animation */
+
+.fadeUp {
+    animation: fadeUp both;
+    animation-timeline: view();
+}
+
+.fadeUp:nth-child(1) {
+    animation-range: entry 20% cover 40%;
+}
+.fadeUp:nth-child(2) {
+    animation-range: entry 40% cover 60%;
+}
+.fadeUp:nth-child(3) {
+    animation-range: entry 60% cover 80%;
+}
+.fadeUp:nth-child(4) {
+    animation-range: entry 80% cover 80%;
+}
+.fadeUp:nth-child(5) {
+    animation-range: entry 20% cover 40%;
+}
+.fadeUp:nth-child(6) {
+    animation-range: entry 40% cover 60%;
+}
+.fadeUp:nth-child(7) {
+    animation-range: entry 60% cover 80%;
+}
+.fadeUp:nth-child(8) {
+    animation-range: entry 80% cover 80%;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
