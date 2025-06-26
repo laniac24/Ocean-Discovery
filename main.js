@@ -8,6 +8,25 @@ const $$ = document.querySelectorAll.bind(document);
 </article> */
 
 function Modal() {
+    function getScrollbarWidth() {
+        if (getScrollbarWidth.value) {
+            return getScrollbarWidth.value;
+        }
+        const div = document.createElement('div');
+        Object.assign(div.style, {
+            overflow: 'scroll',
+            position: 'absolute',
+            top: '-9999px'
+        });
+
+        document.body.appendChild(div)
+        const scrollbarWidth = div.offsetWidth - div.clientWidth;
+        document.body.removeChild(div);
+
+        getScrollbarWidth.value = scrollbarWidth;
+        return scrollbarWidth;
+    }
+
     this.openModal = (options = {}) => {
         const { templateId, allowModalClose = true } = options;
         const template = $(`${templateId}`);
@@ -55,6 +74,7 @@ function Modal() {
 
         // Disable scrolling
         document.body.classList.add('no-scroll');
+        document.body.style.paddingRight = getScrollbarWidth() + 'px';
     }
 
     this.closeModal = (modalElement) => {
@@ -64,6 +84,7 @@ function Modal() {
 
             // Enable scrolling
             document.body.classList.remove('no-scroll');
+            document.body.style.paddingRight = '';
         }
     }
 }
@@ -76,8 +97,6 @@ $('#open-modal-1').onclick = () => {
         templateId: "#modal-1",
         allowModalClose: true
     })
-    console.log("Hello");
-    
 }
 
 $('#open-modal-2').onclick = () => {
@@ -85,8 +104,6 @@ $('#open-modal-2').onclick = () => {
         templateId: "#modal-2",
         allowModalClose: true
     })
-    console.log("Hello");
-    
 }
 
 $('#open-modal-3').onclick = () => {
@@ -94,6 +111,39 @@ $('#open-modal-3').onclick = () => {
         templateId: "#modal-3",
         allowModalClose: true
     })
-    console.log("Hello");
-    
+}
+
+$('#open-modal-4').onclick = () => {
+    modal.openModal({
+        templateId: "#modal-4",
+        allowModalClose: true
+    })
+}
+
+$('#open-modal-5').onclick = () => {
+    modal.openModal({
+        templateId: "#modal-5",
+        allowModalClose: true
+    })
+}
+
+$('#open-modal-6').onclick = () => {
+    modal.openModal({
+        templateId: "#modal-6",
+        allowModalClose: true
+    })
+}
+
+$('#open-modal-7').onclick = () => {
+    modal.openModal({
+        templateId: "#modal-7",
+        allowModalClose: true
+    })
+}
+
+$('#open-modal-8').onclick = () => {
+    modal.openModal({
+        templateId: "#modal-8",
+        allowModalClose: true
+    })
 }
