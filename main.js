@@ -100,20 +100,26 @@ function Modal(options = {}) {
             })
         }
 
-        this._backdrop.ontransitionend = (e) => {
-            if (e.propertyName !== 'transform') return;
+        this._onTransitionEnd(() => {
             if (typeof onOpen === 'function') onOpen();
-        }
-
+        })
+    
         // Disable scrolling
         document.body.classList.add('no-scroll');
         document.body.style.paddingRight = getScrollbarWidth() + 'px';
     }
 
-    this.close = (destroy = destroyOnClose) => {
-        this._backdrop.classList.remove('show');
+    this._onTransitionEnd = (callback) => {
         this._backdrop.ontransitionend = (e) => {
             if (e.propertyName !== 'transform') return;
+            if (typeof callback === 'function') callback();
+        }
+    }
+
+    this.close = (destroy = destroyOnClose) => {
+        this._backdrop.classList.remove('show');
+        
+        this._onTransitionEnd(() => {
             if (typeof onClose === 'function') onClose();
             if (destroy && this._backdrop) {
                 this._backdrop.remove();
@@ -123,7 +129,7 @@ function Modal(options = {}) {
             // Enable scrolling
             document.body.classList.remove('no-scroll');
             document.body.style.paddingRight = '';
-        }
+        });
     }
 }
 
