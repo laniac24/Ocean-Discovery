@@ -11,7 +11,9 @@ function Modal(options = {}) {
     const { templateId,
             closeMethods = ['button', 'overlay', 'escape'],
             destroyOnClose = true,
-            cssClass = []
+            cssClass = [],
+            onOpen,
+            onClose
     } = options;
     const template = $(`${templateId}`);
 
@@ -98,6 +100,11 @@ function Modal(options = {}) {
             })
         }
 
+        this._backdrop.ontransitionend = (e) => {
+            if (e.propertyName !== 'transform') return;
+            if (typeof onOpen === 'function') onOpen();
+        }
+
         // Disable scrolling
         document.body.classList.add('no-scroll');
         document.body.style.paddingRight = getScrollbarWidth() + 'px';
@@ -105,7 +112,9 @@ function Modal(options = {}) {
 
     this.close = (destroy = destroyOnClose) => {
         this._backdrop.classList.remove('show');
-        this._backdrop.ontransitionend = () => {
+        this._backdrop.ontransitionend = (e) => {
+            if (e.propertyName !== 'transform') return;
+            if (typeof onClose === 'function') onClose();
             if (destroy && this._backdrop) {
                 this._backdrop.remove();
                 this._backdrop = null;
@@ -131,6 +140,12 @@ const modal2 = new Modal({
         templateId: "#modal-2",
         destroyOnClose: false,
         cssClass: ['class1', 'class2', 'classN'],
+        onOpen: () => {
+            console.log('Modal opened');
+        },
+        onClose: () => {
+            console.log('Modal closed');
+        }
     });
 $('#open-modal-2').onclick = () => {
     modal2.open()
