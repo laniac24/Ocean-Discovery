@@ -12,6 +12,7 @@ function Modal(options = {}) {
             closeMethods = ['button', 'overlay', 'escape'],
             destroyOnClose = true,
             cssClass = [],
+            footer = false,
             onOpen,
             onClose
     } = options;
@@ -69,8 +70,43 @@ function Modal(options = {}) {
 
         // Append Elements
         container.append(content);
+
+        if (footer) {
+            this._modalFooter = document.createElement('div');
+            this._modalFooter.className = 'modal-footer';
+            if (this._footerContent) {
+                this._modalFooter.innerHTML = this._footerContent;
+            }
+
+            this._footerButtons.forEach(button => {
+                if (button) {
+                    this._modalFooter.append(button);
+                }
+            })
+
+            container.append(this._modalFooter);
+        }
+
         this._backdrop.append(container);
         document.body.append(this._backdrop);
+    }
+
+    this.setFooterContent = html => {
+        this._footerContent = html;
+        if (this._modalFooter) {
+            this._modalFooter.innerHTML = html;
+        }
+    }
+
+    this._footerButtons = [];
+
+    this.addFooterButton = (title, cssClass, callback) => {
+        const button = document.createElement('button');
+        button.className = cssClass;
+        button.innerHTML = title;
+        button.onclick = callback;
+
+        this._footerButtons.push(button);
     }
 
     this.open = () => {
@@ -124,6 +160,7 @@ function Modal(options = {}) {
             if (destroy && this._backdrop) {
                 this._backdrop.remove();
                 this._backdrop = null;
+                this._modalFooter = null;
             }
     
             // Enable scrolling
@@ -200,7 +237,14 @@ $('#open-modal-7').onclick = () => {
 const modal8 = new Modal({
         templateId: "#modal-8",
         destroyOnClose: false,
+        footer: true,
+        closeMethods: []
     });
+
+modal8.addFooterButton('Close', 'modal-btn', (e) => {
+    modal8.close();
+})
+
 $('#open-modal-8').onclick = () => {
     modal8.open()
 }
