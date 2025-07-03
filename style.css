@@ -543,20 +543,94 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 4rem;
+    margin-top: 6rem;
+    gap: 1rem;
+}
+
+.modal-footer h3 {
+    font-weight: 500;
 }
 
 .modal-btn {
     background-color: transparent;
-    color: #333;
-    font-weight: 600;
-    border: 2px solid #333;
-    padding: 1rem 3rem;
+    font-family: 'Hina Mincho', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: .7rem 2rem;
     border-radius: 5px;
     transition: 300ms ease-in-out;
 }
 
-.modal-btn:hover {
-    background-color: #333;
-    color: white;
+.beach-btn {
+    color: hsl(47, 55%, 71%);
+    border: 2px solid hsl(47, 55%, 71%);
 }
+.beach-btn:hover {
+    background-color: hsl(47, 55%, 71%);
+    color: #fff;
+}
+
+.reef-btn {
+    color: hsl(190, 100%, 39%);
+    border: 2px solid hsl(190, 100%, 39%);
+}
+.reef-btn:hover {
+    background-color: hsl(190, 100%, 39%);
+    color: #fff;
+}
+
+.kelp-btn {
+    color: hsl(37, 40%, 43%);
+    border: 2px solid hsl(37, 40%, 43%);
+}
+.kelp-btn:hover {
+    background-color: hsl(37, 40%, 43%);
+    color: #fff;
+}
+
+.seagrass-btn {
+    color: hsl(122, 21%, 49%);
+    border: 2px solid hsl(122, 21%, 49%);
+}
+.seagrass-btn:hover {
+    background-color: hsl(122, 21%, 49%);
+    color: #fff;
+}
+
+.epi-btn {
+    color: hsl(203, 80%, 34%);
+    border: 2px solid hsl(203, 80%, 34%);
+}
+.epi-btn:hover {
+    background-color: hsl(203, 80%, 34%);
+    color: #fff;
+}
+
+.meso-btn {
+    color: hsl(171, 22%, 28%);
+    border: 2px solid hsl(171, 22%, 28%);
+}
+.meso-btn:hover {
+    background-color: hsl(171, 22%, 28%);
+    color: #fff;
+}
+
+.bathy-btn {
+    color: hsl(203, 27%, 25%);
+    border: 2px solid hsl(203, 27%, 25%);
+}
+.bathy-btn:hover {
+    background-color: hsl(203, 27%, 25%);
+    color: #fff;
+}
+
+.abysso-btn {
+    color: hsl(0, 0%, 0%);
+    border: 2px solid hsl(0, 0%, 0%);
+}
+.abysso-btn:hover {
+    background-color: hsl(0, 0%, 0%);
+    color: #fff;
+}
+
+
